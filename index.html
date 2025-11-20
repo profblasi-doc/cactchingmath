@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Caccia al Tesoro Matematica</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+  body {
+    margin: 0;
+    font-family: 'Press Start 2P', cursive;
+    background: linear-gradient(120deg, #1a1a2e, #162447);
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+
+  .screen {
+    display: none;
+    text-align: center;
+    max-width: 90%;
+    padding: 20px;
+    background: rgba(0,0,0,0.7);
+    border-radius: 15px;
+    border: 2px solid #00ffea;
+    box-shadow: 0 0 20px #00ffea;
+    animation: bounce 1.5s infinite;
+  }
+
+  .active {
+    display: block;
+  }
+
+  h1 {
+    color: #ffdd55;
+    text-shadow: 0 0 10px #ffdd55;
+    margin-bottom: 20px;
+  }
+
+  a.button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    color: #00ffea;
+    background: #000000aa;
+    border: 2px solid #00ffea;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 0.9rem;
+  }
+
+  a.button:hover {
+    background: #00ffea22;
+    color: #000;
+    transition: 0.3s;
+  }
+
+  @keyframes bounce {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+</style>
+</head>
+<body>
+
+<!-- Schermata 1 -->
+<div id="screen1" class="screen active">
+  <h1>Enigma 1</h1>
+  <p>Risolvi il primo enigma matematico!</p>
+  <div>Risolvi <a href="https://forms.gle/t4LPRfaGSXtHpd1Y8">questa</a> equazione.<br></div>
+  <a class="button" onclick="nextScreen(2)">Avanti</a>
+</div>
+
+<!-- Schermata 2 -->
+<div id="screen2" class="screen">
+  <h1>Enigma 2</h1>
+  <p>Vai avanti con il secondo enigma!</p>
+  <div>Risolvi <a href="https://forms.gle/ouhvCLgueyPCLAUE9">questa</a> equazione.<br></div>
+  <a class="button" onclick="nextScreen(3)">Avanti</a>
+</div>
+
+<!-- Schermata 3 -->
+<div id="screen3" class="screen">
+  <h1>Enigma 3</h1>
+  <p>Ultimo enigma! Sei quasi alla fine della caccia.</p>
+  <div>Risolvi <a href="https://forms.gle/ZSf4AdTScsnqkWjs6">questa</a> equazione.<br></div>
+  <a class="button" onclick="nextScreen(4)">Avanti</a>
+</div>
+
+<!-- Schermata Finale -->
+<div id="screen4" class="screen">
+  <h1>🎉 "Matematica e gioco: due facce della stessa curiosità." – Carl Friedrich Gauss 🎉</h1>
+  <div>Ottimo, hai risolto i tre enigmi di oggi! Adesso è tempo di tornare a scuola!<br></div>
+</div>
+
+<script>
+  function nextScreen(n) {
+    const screens = document.querySelectorAll('.screen');
+    screens.forEach(s => s.classList.remove('active'));
+    const next = document.getElementById('screen'+n);
+    if(next) next.classList.add('active');
+  }
+</script>
+
+</body>
+</html>
